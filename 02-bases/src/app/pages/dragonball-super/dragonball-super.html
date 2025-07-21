@@ -1,0 +1,27 @@
+
+<h1>It Works! :D Dragon ball Super Page btw</h1>
+
+<hr/>
+
+<section>
+  <div class="col-12 col-sm-6">
+
+    <!-- dragonball-character.add -->
+      <app-character-add
+        (newCharacter)="dragonBallService.addCharacter($event)"
+      />
+
+    <!-- hasta aqui -->
+  </div>
+
+  <div class="col-12 col-sm-6">
+
+    <dragonball-character-list
+      listName = "Listado de personajes"
+    [characters]="dragonBallService.characters()"/>
+
+
+  </div>
+
+
+</section>
