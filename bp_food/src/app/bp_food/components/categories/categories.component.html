@@ -1,0 +1,50 @@
+<div class="w-full p-10 grid grid-cols-2 md:grid-cols-4 gap-4">
+  @for (cat of categoriesList(); track cat) {
+  <div class="grid gap-4">
+    <div class="font-serif italic max-w-md lg:rounded-2xl bg-white border border-gray-100  shadow-sm dark:bg-pink-900 dark:border-gray-700">
+      <div class="p-5 flex flex-col items-center">
+        @if (showDesc()) {
+          <a href="#">
+              <img class="rounded-t-lg" [src]="cat.strCategoryThumb" alt="" />
+          </a>
+        }@else {
+          <a href="#">
+              <img class="rounded-t-lg" [src]="cat.strMealThumb" alt="" />
+          </a>
+        }
+      </div>
+        <div class="p-5">
+            <a href="#">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-pink-100 dark:text-pink-100">{{cat.strCategory}}</h5>
+            </a>
+
+            @if (showDesc()) {
+              <p class="mb-3 font-normal text-pink-300 dark:text-pink-300">
+                {{ cat.strCategoryDescription }}
+              </p>
+            }@else{
+              <p class="mb-3 font-normal text-pink-300 dark:text-pink-300">
+                {{ cat.strMeal }}
+              </p>
+            }
+
+            @if(showDesc()) {
+              <button (click)="selectCategory(cat.strCategory)" class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-pink-300 rounded-lg hover:bg-blue-800 focus:ring-4 dark:bg-pink-300 dark:hover:bg-pink-700">
+                Food Plates
+                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                </svg>
+              </button>
+            }@else {
+              <button (click)="recipeLink(cat.strMeal)" class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-pink-300 rounded-lg hover:bg-blue-800 focus:ring-4 dark:bg-pink-300 dark:hover:bg-pink-700">
+                Recipe
+                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                </svg>
+              </button>
+            }
+        </div>
+    </div>
+  </div>
+  }
+</div>
